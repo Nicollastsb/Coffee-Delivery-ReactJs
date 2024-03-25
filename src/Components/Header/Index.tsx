@@ -9,7 +9,7 @@ export function Header() {
     return (
       <HeaderContainer>
         <div>
-          <NavLink to="/Coffee-Delivery" title="Home">
+          <NavLink to="/Coffee-Delivery-ReactJs" title="Home">
             <img src={logoCoffeeDelivery} alt="" />
           </NavLink>   
           <nav>            
@@ -17,7 +17,7 @@ export function Header() {
                 <MapPin size={22} weight="fill" /> { (deliveryAddress && deliveryAddress?.street ? (deliveryAddress?.city, deliveryAddress?.state) : "") }
               </LocationHeaderButtonLink>            
             <CartShopHeader>
-              <NavLink to="/Coffee-Delivery/checkout" title="Compras">
+              <NavLink to="/Coffee-Delivery-ReactJs/checkout" title="Compras">
                 <ShoppingCart size={22} weight="fill" />
               </NavLink>    
               { totalPrices && totalPrices?.quantity > 0 &&

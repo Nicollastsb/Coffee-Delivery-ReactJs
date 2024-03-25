@@ -203,7 +203,7 @@ export function Checkout() {
               <span>{totalPrices?.total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>
             </div>
           </TotalCoffeePrice>
-            <ButtonConfirmPayment to="/Coffee-Delivery/Success" title="Success" >
+            <ButtonConfirmPayment to="/Coffee-Delivery-ReactJs/Success" title="Success" >
               <button disabled={isSumitedDisabled} type="submit" onClick={submitForms}>
                   <span>CONFIRMAR PEDIDO</span>
               </button>  
