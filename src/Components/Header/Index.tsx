@@ -9,7 +9,7 @@ export function Header() {
     return (
       <HeaderContainer>
         <div>
-          <NavLink to="/" title="Home">
+          <NavLink to="/Coffee-Delivery" title="Home">
             <img src={logoCoffeeDelivery} alt="" />
           </NavLink>   
           <nav>
@@ -19,7 +19,7 @@ export function Header() {
               </LocationHeaderButtonLink>
             }
             <CartShopHeader>
-              <NavLink to="/checkout" title="Compras">
+              <NavLink to="/Coffee-Delivery/checkout" title="Compras">
                 <ShoppingCart size={22} weight="fill" />
               </NavLink>    
               { totalPrices && totalPrices?.quantity > 0 &&

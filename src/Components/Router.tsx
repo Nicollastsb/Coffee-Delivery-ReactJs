@@ -6,10 +6,10 @@ import { DefaultLayout } from '../Layouts/DefaultLayout/Index'
 export function Router() {
     return (
       <Routes>
-        <Route path='/' element={<DefaultLayout/>}>
-            <Route path='/' element={<Home/>}></Route>
-            <Route path='/checkout' element={<Checkout/>}></Route>
-            <Route path='/success' element={<Success/>}></Route>
+        <Route path='/Coffee-Delivery' element={<DefaultLayout/>}>
+            <Route path='/Coffee-Delivery' element={<Home/>}></Route>
+            <Route path='/Coffee-Delivery/checkout' element={<Checkout/>}></Route>
+            <Route path='/Coffee-Delivery/success' element={<Success/>}></Route>
         </Route>
       </Routes>
     )

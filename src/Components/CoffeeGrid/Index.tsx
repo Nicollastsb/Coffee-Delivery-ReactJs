@@ -11,7 +11,7 @@ export function CoffeeGrid() {
     const [coffees, dispatch] = useReducer(coffeGridReducer, [],
         () => {
             const storedStateAsJson = localStorage.getItem(
-                'coffe-delivery-array-coffee-1.0.0',
+                'coffe-delivery-array-coffee-3.0.0',
             )
             if(storedStateAsJson)
                 return JSON.parse(storedStateAsJson)
@@ -30,7 +30,7 @@ export function CoffeeGrid() {
 
     useEffect(() => {        
         const stateJSON = JSON.stringify(coffees)
-        localStorage.setItem('coffe-delivery-array-coffee-1.0.0', stateJSON)
+        localStorage.setItem('coffe-delivery-array-coffee-3.0.0', stateJSON)
       }, [coffees])
 
     return (
@@ -39,6 +39,7 @@ export function CoffeeGrid() {
                 <CoffeeGridTitle>Nossos cafés</CoffeeGridTitle>
                 <CoffeeGridContainer>
                     {coffees.map((coffeeItem) => {
+                        console.log(coffeeItem)
                         return (
                         <CoffeeGridItem key={coffeeItem.id}>          
                             <div>                    
