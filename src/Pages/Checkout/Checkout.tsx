@@ -46,6 +46,40 @@ export function Checkout() {
 
   const isSumitedDisabled = !cep || !street || !number || !neighborhood || !city || !state || !selectedOption;
 
+  let urlCoffeeImage = "";
+  function setUrl (coffeeUrl: string): string{
+    if(coffeeUrl.includes("Arabe"))
+      return Arabe;
+    if(coffeeUrl.includes("CafeComLeite"))
+      return CafeComLeite;
+    if(coffeeUrl.includes("Capuccino"))
+      return Capuccino;
+    if(coffeeUrl.includes("ChocolateQuente"))
+      return ChocolateQuente;
+    if(coffeeUrl.includes("Cubano"))
+      return Cubano;
+    if(coffeeUrl.includes("ExpressoAmericano"))
+      return ExpressoAmericano;
+    if(coffeeUrl.includes("ExpressoCremoso"))
+      return ExpressoCremoso;
+    if(coffeeUrl.includes("ExpressoGelado"))
+      return ExpressoGelado;
+    if(coffeeUrl.includes("ExpressoTradicional"))
+      return ExpressoTradicional;
+    if(coffeeUrl.includes("Havaiano"))
+      return Havaiano;
+    if(coffeeUrl.includes("Irlandes"))
+      return Irlandes;
+    if(coffeeUrl.includes("Latte"))
+      return Latte;
+    if(coffeeUrl.includes("Macchiato"))
+      return Macchiato;
+    if(coffeeUrl.includes("Mocaccino"))
+      return Mocaccino;
+      
+    return "";
+  }
+
   function handleCreateNewSale(data: DeliveryAddress){
     setCurrentDeliveryAddress(data)
   }
@@ -173,11 +207,12 @@ export function Checkout() {
         <CoffeeChecoutTotalPayment>
           <div>
             {coffees.map((coffeeItem: Coffee) => {
+                urlCoffeeImage = setUrl(coffeeItem.url);
                 return (
                   <div key={coffeeItem.id}>
                     <CoffeeInShoppingCart >     
                       <div>
-                        <img src={coffeeItem.url} alt="" />
+                        <img src={urlCoffeeImage} alt="" />
                       </div>
                       <div>
                         <div>{coffeeItem.title}</div>
