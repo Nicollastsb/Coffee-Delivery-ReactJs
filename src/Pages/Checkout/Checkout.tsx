@@ -159,6 +159,7 @@ export function Checkout() {
         <CoffeeChecoutTotalPayment>
           <div>
             {coffees.map((coffeeItem: Coffee) => {
+              console.log(coffeeItem.url)
                 return (
                   <div key={coffeeItem.id}>
                     <CoffeeInShoppingCart >     

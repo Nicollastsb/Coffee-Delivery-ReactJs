@@ -6,30 +6,10 @@ import { coffeGridReducer } from "../../Reducers/coffeeGrid/reducer";
 import { addOneQuantity, removeOneQuantity } from "../../Reducers/coffeeGrid/action";
 import { coffeeArray } from '../../../data.json'
 import { Coffee } from "../Contexts/SaleProvider";
-import Arabe  from "../../Assets/Arabe.svg"
-import CafeComLeite  from "../../Assets/CafeComLeite.svg"
-import Capuccino  from "../../Assets/Capuccino.svg"
-import ChocolateQuente  from "../../Assets/ChocolateQuente.svg"
-import Cubano  from "../../Assets/Cubano.svg"
-import ExpressoAmericano  from "../../Assets/ExpressoAmericano.svg"
-import ExpressoCremoso  from "../../Assets/ExpressoCremoso.svg"
-import ExpressoGelado  from "../../Assets/ExpressoGelado.svg"
-import ExpressoTradicional  from "../../Assets/ExpressoTradicional.svg"
-import Havaiano  from "../../Assets/Havaiano.svg"
-import Irlandes  from "../../Assets/Irlandes.svg"
-import Latte  from "../../Assets/Latte.svg"
-import Macchiato  from "../../Assets/Macchiato.svg"
-import Mocaccino  from "../../Assets/Mocaccino.svg"
 
 export function CoffeeGrid() {
     const [coffees, dispatch] = useReducer(coffeGridReducer, [],
         () => {
-            // const storedStateAsJson = localStorage.getItem(
-            //     'coffe-delivery-array-coffee-3.0.0',
-            // )
-            // if(storedStateAsJson)
-            //     return JSON.parse(storedStateAsJson)
-
             return coffeeArray
         });
     const { addCoffeesOnShoppintCartAction } = useCart()
@@ -40,40 +20,6 @@ export function CoffeeGrid() {
         else{
             dispatch(removeOneQuantity(coffee.id))
         }
-    }
-    
-    let urlCoffeeImage = "";
-    function setUrl (coffeeUrl: string): string{
-        if(coffeeUrl.includes("Arabe"))
-            urlCoffeeImage = Arabe;
-        if(coffeeUrl.includes("CafeComLeite"))
-            urlCoffeeImage = CafeComLeite;
-        if(coffeeUrl.includes("Capuccino"))
-            urlCoffeeImage = Capuccino;
-        if(coffeeUrl.includes("ChocolateQuente"))
-            urlCoffeeImage = ChocolateQuente;
-        if(coffeeUrl.includes("Cubano"))
-            urlCoffeeImage = Cubano;
-        if(coffeeUrl.includes("ExpressoAmericano"))
-            urlCoffeeImage = ExpressoAmericano;
-        if(coffeeUrl.includes("ExpressoCremoso"))
-            urlCoffeeImage = ExpressoCremoso;
-        if(coffeeUrl.includes("ExpressoGelado"))
-            urlCoffeeImage = ExpressoGelado;
-        if(coffeeUrl.includes("ExpressoTradicional"))
-            urlCoffeeImage = ExpressoTradicional;
-        if(coffeeUrl.includes("Havaiano"))
-            urlCoffeeImage = Havaiano;
-        if(coffeeUrl.includes("Irlandes"))
-            urlCoffeeImage = Irlandes;
-        if(coffeeUrl.includes("Latte"))
-            urlCoffeeImage = Latte;
-        if(coffeeUrl.includes("Macchiato"))
-            urlCoffeeImage = Macchiato;
-        if(coffeeUrl.includes("Mocaccino"))
-            urlCoffeeImage = Mocaccino;
-        
-        return urlCoffeeImage.slice(16);
     }
 
     useEffect(() => {        
@@ -87,11 +33,10 @@ export function CoffeeGrid() {
                 <CoffeeGridTitle>Nossos cafés</CoffeeGridTitle>
                 <CoffeeGridContainer>
                     {coffees.map((coffeeItem) => {
-                        urlCoffeeImage = setUrl(coffeeItem.url);
                         return (
                         <CoffeeGridItem key={coffeeItem.id}>          
                             <div>                    
-                                <img src={urlCoffeeImage} alt="" />
+                                <img src={coffeeItem.url} alt="" />
                             </div>  
                             <CoffeTag>
                                 {coffeeItem.tag.map((tagItem, index) => {
