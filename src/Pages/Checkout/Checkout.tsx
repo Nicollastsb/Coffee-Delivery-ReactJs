@@ -6,20 +6,6 @@ import { CoffeeQuantity } from "../../Components/CoffeeGrid/styles"
 import { Coffee, DeliveryAddress, PaymentType } from "../../Components/Contexts/SaleProvider"
 import { useForm } from "react-hook-form"
 import { useState } from "react"
-import Arabe  from "../../Assets/Arabe.svg"
-import CafeComLeite  from "../../Assets/CafeComLeite.svg"
-import Capuccino  from "../../Assets/Capuccino.svg"
-import ChocolateQuente  from "../../Assets/ChocolateQuente.svg"
-import Cubano  from "../../Assets/Cubano.svg"
-import ExpressoAmericano  from "../../Assets/ExpressoAmericano.svg"
-import ExpressoCremoso  from "../../Assets/ExpressoCremoso.svg"
-import ExpressoGelado  from "../../Assets/ExpressoGelado.svg"
-import ExpressoTradicional  from "../../Assets/ExpressoTradicional.svg"
-import Havaiano  from "../../Assets/Havaiano.svg"
-import Irlandes  from "../../Assets/Irlandes.svg"
-import Latte  from "../../Assets/Latte.svg"
-import Macchiato  from "../../Assets/Macchiato.svg"
-import Mocaccino  from "../../Assets/Mocaccino.svg"
 
 export function Checkout() {  
   const { coffees, removeOneCoffee, removeCoffee, addOneCoffeeOnShoppintCartAction, setCurrentPayment, setCurrentDeliveryAddress, totalPrices } = useCart()  
@@ -45,40 +31,6 @@ export function Checkout() {
   const state = watch('state');
 
   const isSumitedDisabled = !cep || !street || !number || !neighborhood || !city || !state || !selectedOption;
-
-  let urlCoffeeImage = "";
-  function setUrl (coffeeUrl: string): string{
-    if(coffeeUrl.includes("Arabe"))
-      return Arabe;
-    if(coffeeUrl.includes("CafeComLeite"))
-      return CafeComLeite;
-    if(coffeeUrl.includes("Capuccino"))
-      return Capuccino;
-    if(coffeeUrl.includes("ChocolateQuente"))
-      return ChocolateQuente;
-    if(coffeeUrl.includes("Cubano"))
-      return Cubano;
-    if(coffeeUrl.includes("ExpressoAmericano"))
-      return ExpressoAmericano;
-    if(coffeeUrl.includes("ExpressoCremoso"))
-      return ExpressoCremoso;
-    if(coffeeUrl.includes("ExpressoGelado"))
-      return ExpressoGelado;
-    if(coffeeUrl.includes("ExpressoTradicional"))
-      return ExpressoTradicional;
-    if(coffeeUrl.includes("Havaiano"))
-      return Havaiano;
-    if(coffeeUrl.includes("Irlandes"))
-      return Irlandes;
-    if(coffeeUrl.includes("Latte"))
-      return Latte;
-    if(coffeeUrl.includes("Macchiato"))
-      return Macchiato;
-    if(coffeeUrl.includes("Mocaccino"))
-      return Mocaccino;
-      
-    return "";
-  }
 
   function handleCreateNewSale(data: DeliveryAddress){
     setCurrentDeliveryAddress(data)
@@ -207,12 +159,11 @@ export function Checkout() {
         <CoffeeChecoutTotalPayment>
           <div>
             {coffees.map((coffeeItem: Coffee) => {
-                urlCoffeeImage = setUrl(coffeeItem.url);
                 return (
                   <div key={coffeeItem.id}>
                     <CoffeeInShoppingCart >     
                       <div>
-                        <img src={urlCoffeeImage} alt="" />
+                        <img src={coffeeItem.url} alt="" />
                       </div>
                       <div>
                         <div>{coffeeItem.title}</div>
