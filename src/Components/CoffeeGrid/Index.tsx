@@ -45,35 +45,35 @@ export function CoffeeGrid() {
     let urlCoffeeImage = "";
     function setUrl (coffeeUrl: string): string{
         if(coffeeUrl.includes("Arabe"))
-        return Arabe;
+            urlCoffeeImage = Arabe;
         if(coffeeUrl.includes("CafeComLeite"))
-        return CafeComLeite;
+            urlCoffeeImage = CafeComLeite;
         if(coffeeUrl.includes("Capuccino"))
-        return Capuccino;
+            urlCoffeeImage = Capuccino;
         if(coffeeUrl.includes("ChocolateQuente"))
-        return ChocolateQuente;
+            urlCoffeeImage = ChocolateQuente;
         if(coffeeUrl.includes("Cubano"))
-        return Cubano;
+            urlCoffeeImage = Cubano;
         if(coffeeUrl.includes("ExpressoAmericano"))
-        return ExpressoAmericano;
+            urlCoffeeImage = ExpressoAmericano;
         if(coffeeUrl.includes("ExpressoCremoso"))
-        return ExpressoCremoso;
+            urlCoffeeImage = ExpressoCremoso;
         if(coffeeUrl.includes("ExpressoGelado"))
-        return ExpressoGelado;
+            urlCoffeeImage = ExpressoGelado;
         if(coffeeUrl.includes("ExpressoTradicional"))
-        return ExpressoTradicional;
+            urlCoffeeImage = ExpressoTradicional;
         if(coffeeUrl.includes("Havaiano"))
-        return Havaiano;
+            urlCoffeeImage = Havaiano;
         if(coffeeUrl.includes("Irlandes"))
-        return Irlandes;
+            urlCoffeeImage = Irlandes;
         if(coffeeUrl.includes("Latte"))
-        return Latte;
+            urlCoffeeImage = Latte;
         if(coffeeUrl.includes("Macchiato"))
-        return Macchiato;
+            urlCoffeeImage = Macchiato;
         if(coffeeUrl.includes("Mocaccino"))
-        return Mocaccino;
+            urlCoffeeImage = Mocaccino;
         
-        return "";
+        return urlCoffeeImage.slice(16);
     }
 
     useEffect(() => {        
