@@ -12,12 +12,10 @@ export function Header() {
           <NavLink to="/Coffee-Delivery" title="Home">
             <img src={logoCoffeeDelivery} alt="" />
           </NavLink>   
-          <nav>
-            {deliveryAddress?.street && 
+          <nav>            
               <LocationHeaderButtonLink> 
-                <MapPin size={22} weight="fill" /> {deliveryAddress?.city}, {deliveryAddress?.state}
-              </LocationHeaderButtonLink>
-            }
+                <MapPin size={22} weight="fill" /> { (deliveryAddress && deliveryAddress?.street ? (deliveryAddress?.city, deliveryAddress?.state) : "") }
+              </LocationHeaderButtonLink>            
             <CartShopHeader>
               <NavLink to="/Coffee-Delivery/checkout" title="Compras">
                 <ShoppingCart size={22} weight="fill" />
