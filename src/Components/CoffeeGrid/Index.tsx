@@ -39,7 +39,6 @@ export function CoffeeGrid() {
                 <CoffeeGridTitle>Nossos cafés</CoffeeGridTitle>
                 <CoffeeGridContainer>
                     {coffees.map((coffeeItem) => {
-                        console.log(coffeeItem)
                         return (
                         <CoffeeGridItem key={coffeeItem.id}>          
                             <div>                    

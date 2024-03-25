@@ -10,7 +10,7 @@ import { useState } from "react"
 export function Checkout() {  
   const { coffees, removeOneCoffee, removeCoffee, addOneCoffeeOnShoppintCartAction, setCurrentPayment, setCurrentDeliveryAddress, totalPrices } = useCart()  
   const [selectedOption, setSelectedOption] = useState<PaymentType | null>(null);
-  const { register, handleSubmit, watch } = useForm();
+  const { register, handleSubmit, watch } = useForm<DeliveryAddress>();
 
   const handleOptionClick = (option: PaymentType) => {
     setSelectedOption(option)
@@ -133,19 +133,19 @@ export function Checkout() {
             </CoffeeChecoutHeaderAddress>
             <CoffeeChecoutPaymentContainer>
               <CoffeeCheckoutCardPaymentType 
-                className={selectedOption == PaymentType.CreditCard && "selected"} 
+                className={selectedOption == PaymentType.CreditCard ? "selected" : ""} 
                 onClick={() => handleOptionClick(PaymentType.CreditCard)}>
                   <CreditCard size={22} />
                   <span>CARTÃO DE CRÉDITO</span> 
               </CoffeeCheckoutCardPaymentType>
               <CoffeeCheckoutCardPaymentType 
-                className={selectedOption == PaymentType.DebitCard && "selected"} 
+                className={selectedOption == PaymentType.DebitCard ? "selected" : ""} 
                 onClick={() => handleOptionClick(PaymentType.DebitCard)}>
                   <Bank size={22} /> 
                   <span>CARTÃO DE DÉBITO</span>
               </CoffeeCheckoutCardPaymentType>
               <CoffeeCheckoutCardPaymentType 
-                className={selectedOption == PaymentType.Money && "selected"} 
+                className={(selectedOption == PaymentType.Money ? "selected" : "")} 
                 onClick={() => handleOptionClick(PaymentType.Money)}>
                   <Money size={22} /> 
                   <span>DINHEIRO</span>
