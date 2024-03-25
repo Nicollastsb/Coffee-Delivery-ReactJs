@@ -10,11 +10,11 @@ import { Coffee } from "../Contexts/SaleProvider";
 export function CoffeeGrid() {
     const [coffees, dispatch] = useReducer(coffeGridReducer, [],
         () => {
-            const storedStateAsJson = localStorage.getItem(
-                'coffe-delivery-array-coffee-3.0.0',
-            )
-            if(storedStateAsJson)
-                return JSON.parse(storedStateAsJson)
+            // const storedStateAsJson = localStorage.getItem(
+            //     'coffe-delivery-array-coffee-3.0.0',
+            // )
+            // if(storedStateAsJson)
+            //     return JSON.parse(storedStateAsJson)
 
             return coffeeArray
         });
